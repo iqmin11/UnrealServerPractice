@@ -9,12 +9,12 @@ cmd 명령어:
 "C:\Program Files\Epic Games\UE_5.3\Engine\Binaries\Win64\UnrealEditor.exe" 
 
 //프로젝트
-"C:\Users\iqmin\OneDrive\Desktop\HSM\Coding\UnrealServerPractice\PuzzlePlatforms\PuzzlePlatforms.uproject"
+"C:\DevelopHSM\UnrealServerPractice\PuzzlePlatforms\PuzzlePlatforms.uproject"
 
-"C:\Program Files\Epic Games\UE_5.3\Engine\Binaries\Win64\UnrealEditor.exe" "C:\Users\iqmin\OneDrive\Desktop\HSM\Coding\UnrealServerPractice\PuzzlePlatforms\PuzzlePlatforms.uproject" /Game/ThirdPerson/Maps/ThirdPersonMap -game -log
+"C:\Program Files\Epic Games\UE_5.3\Engine\Binaries\Win64\UnrealEditor.exe" "C:\DevelopHSM\UnrealServerPractice\PuzzlePlatforms\PuzzlePlatforms.uproject" /Game/ThirdPerson/Maps/ThirdPersonMap -game -log
 
 //서버
-"C:\Program Files\Epic Games\UE_5.3\Engine\Binaries\Win64\UnrealEditor.exe" "C:\Users\iqmin\OneDrive\Desktop\HSM\Coding\UnrealServerPractice\PuzzlePlatforms\PuzzlePlatforms.uproject" /Game/ThirdPerson/Maps/ThirdPersonMap?listen -server -log
+"C:\Program Files\Epic Games\UE_5.3\Engine\Binaries\Win64\UnrealEditor.exe" "C:\DevelopHSM\UnrealServerPractice\PuzzlePlatforms\PuzzlePlatforms.uproject" /Game/ThirdPerson/Maps/ThirdPersonMap?listen -server -log
 
 //클라이언트
-"C:\Program Files\Epic Games\UE_5.3\Engine\Binaries\Win64\UnrealEditor.exe" "C:\Users\iqmin\OneDrive\Desktop\HSM\Coding\UnrealServerPractice\PuzzlePlatforms\PuzzlePlatforms.uproject" 127.0.0.1:7777 -game -log
+"C:\Program Files\Epic Games\UE_5.3\Engine\Binaries\Win64\UnrealEditor.exe" "C:\DevelopHSM\UnrealServerPractice\PuzzlePlatforms\PuzzlePlatforms.uproject" 127.0.0.1:7777 -game -log

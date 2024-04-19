@@ -27,5 +27,19 @@ public:
 	//FVector Dir;
 
 	UPROPERTY(EditAnywhere, Category = "Move")
-	float Velocity = 5.f;
+	float Speed = 30.f;
+
+	UPROPERTY(EditAnywhere, Category = "Move", meta = (MakeEditWidget = true))
+	FVector TargetLocation;
+
+private:
+	FVector StartWorldLocagtion;
+	
+	FVector EndWorldLocagtion;
+
+	FVector Dir;
+
+	float JourneyLength;
+
+	void CalDir();
 };

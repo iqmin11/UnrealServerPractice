@@ -8,12 +8,16 @@ AMovingPlatform::AMovingPlatform()
 	PrimaryActorTick.bCanEverTick = true;
 
 	SetMobility(EComponentMobility::Movable);
-
 }
 
 void AMovingPlatform::BeginPlay()
 {
 	Super::BeginPlay();
+
+	StartWorldLocagtion = GetActorLocation();
+	EndWorldLocagtion = GetTransform().TransformPosition(TargetLocation);
+	CalDir();
+	JourneyLength = (EndWorldLocagtion - StartWorldLocagtion).Size();
 
 	if (HasAuthority())
 	{
@@ -29,7 +33,21 @@ void AMovingPlatform::Tick(float DeltaTime)
 	if (HasAuthority())
 	{
 		FVector CurLocation = GetActorLocation();
-		CurLocation += FVector(Velocity * DeltaTime, 0, 0);
+		
+		float JourneyTravelled = (CurLocation - StartWorldLocagtion).Size();
+
+		if (JourneyLength < JourneyTravelled)
+		{
+			std::swap(StartWorldLocagtion, EndWorldLocagtion);
+			CalDir();
+		}
+
+		CurLocation += Dir * Speed * DeltaTime;
 		SetActorLocation(CurLocation);
 	}
+}
+
+void AMovingPlatform::CalDir()
+{
+	Dir = (EndWorldLocagtion - StartWorldLocagtion).GetSafeNormal();
 }
