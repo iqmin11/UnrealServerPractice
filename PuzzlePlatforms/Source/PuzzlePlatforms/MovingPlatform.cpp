@@ -30,20 +30,36 @@ void AMovingPlatform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (HasAuthority())
+	if (ActiveTriggers > 0)
 	{
-		FVector CurLocation = GetActorLocation();
-		
-		float JourneyTravelled = (CurLocation - StartWorldLocagtion).Size();
-
-		if (JourneyLength < JourneyTravelled)
+		if (HasAuthority())
 		{
-			std::swap(StartWorldLocagtion, EndWorldLocagtion);
-			CalDir();
-		}
+			FVector CurLocation = GetActorLocation();
 
-		CurLocation += Dir * Speed * DeltaTime;
-		SetActorLocation(CurLocation);
+			float JourneyTravelled = (CurLocation - StartWorldLocagtion).Size();
+
+			if (JourneyLength < JourneyTravelled)
+			{
+				std::swap(StartWorldLocagtion, EndWorldLocagtion);
+				CalDir();
+			}
+
+			CurLocation += Dir * Speed * DeltaTime;
+			SetActorLocation(CurLocation);
+		}
+	}
+}
+
+void AMovingPlatform::AddActiveTrigger()
+{
+	++ActiveTriggers;
+}
+
+void AMovingPlatform::RemoveActiveTrigger()
+{
+	if (ActiveTriggers > 0)
+	{
+		--ActiveTriggers;
 	}
 }
 

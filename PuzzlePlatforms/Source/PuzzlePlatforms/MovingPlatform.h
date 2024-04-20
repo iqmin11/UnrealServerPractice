@@ -23,14 +23,14 @@ protected:
 	virtual void Tick(float DeltaTime) override;
 
 public:
-	//UPROPERTY()
-	//FVector Dir;
-
 	UPROPERTY(EditAnywhere, Category = "Move")
 	float Speed = 30.f;
 
 	UPROPERTY(EditAnywhere, Category = "Move", meta = (MakeEditWidget = true))
 	FVector TargetLocation;
+
+	void AddActiveTrigger();
+	void RemoveActiveTrigger();
 
 private:
 	FVector StartWorldLocagtion;
@@ -40,6 +40,9 @@ private:
 	FVector Dir;
 
 	float JourneyLength;
+
+	UPROPERTY(EditAnywhere)
+	int32 ActiveTriggers = 1;
 
 	void CalDir();
 };
